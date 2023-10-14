@@ -48,7 +48,9 @@ public class LoginPage extends AppCompatActivity {
                     }
                     cursor.close();
                     db.close();
-                    startActivity(new Intent(LoginPage.this, MainActivity.class));
+                    Intent intent = new Intent(LoginPage.this, MainActivityForMedicine.class);
+                    intent.putExtra("user_id", user); // Replace 'userId' with the actual user ID
+                    startActivity(intent);
                 }
             }
         });

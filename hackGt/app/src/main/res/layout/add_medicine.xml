@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:padding="16dp"
+    android:background="#E0FFFF">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".MainActivityForMedicine">
+
+        <EditText
+            android:id="@+id/editMedicineName"
+            android:layout_width="360dp"
+            android:layout_height="64dp"
+            android:layout_margin="16dp"
+            android:layout_marginTop="16dp"
+            android:hint="Medicine Name"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.29"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:inputType="text" />
+
+        <Spinner
+            android:id="@+id/spinnerFrequency"
+            android:layout_width="360dp"
+            android:layout_height="64dp"
+            android:layout_margin="16dp"
+            android:layout_marginTop="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editMedicineName"
+            android:entries="@array/frequency_array"
+            android:prompt="@string/app_name" />
+
+        <EditText
+            android:id="@+id/editTreatment"
+            android:layout_width="360dp"
+            android:layout_height="64dp"
+            android:layout_margin="16dp"
+            android:layout_marginTop="16dp"
+            android:hint="Treatment"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.431"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/spinnerFrequency"
+            android:inputType="text" />
+
+        <EditText
+            android:id="@+id/editDosage"
+            android:layout_width="360dp"
+            android:layout_height="64dp"
+            android:layout_margin="16dp"
+            android:layout_marginTop="56dp"
+            android:hint="Dosage"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.49"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editTreatment"
+            android:inputType="text" />
+
+        <Button
+            android:id="@+id/btnSubmit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="56dp"
+            android:text="Add Time Table"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:background="@drawable/round_button"
+            app:layout_constraintTop_toBottomOf="@+id/editDosage" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</LinearLayout>

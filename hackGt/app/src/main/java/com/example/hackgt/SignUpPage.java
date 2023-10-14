@@ -46,7 +46,7 @@ public class SignUpPage extends AppCompatActivity{
 
                     long newRowId = db.insert("users", null, values);
                     db.close();
-                    startActivity(new Intent(SignUpPage.this, MainActivity.class));
+                    startActivity(new Intent(SignUpPage.this, LoginPage.class));
                 }
             }
         });

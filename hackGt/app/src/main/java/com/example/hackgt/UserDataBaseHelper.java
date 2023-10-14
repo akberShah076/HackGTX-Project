@@ -26,6 +26,14 @@ public class UserDataBaseHelper extends SQLiteOpenHelper {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
 
+    public static String getTableName() {
+        return TABLE_NAME;
+    }
+
+    public static String getColumnId() {
+        return COLUMN_ID;
+    }
+
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL(TABLE_CREATE);

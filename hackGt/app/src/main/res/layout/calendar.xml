@@ -7,34 +7,33 @@
     android:padding="16dp"
     android:background="#E0FFFF">
 
-    <TextView
+    <DatePicker android:id="@+id/date_picker"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="myDashboard"
-        android:textColor="#000"
-        android:textSize="30sp"
-        android:textStyle="bold" />
+        android:datePickerMode="calendar"
+        android:startYear="@integer/start_year">
+    </DatePicker>
+
+    <TimePicker android:id="@+id/time_picker"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/spinner_height"
+        android:timePickerMode="spinner">
+    </TimePicker>
 
     <Button
-        android:id="@+id/listButton"
-        android:layout_width="match_parent"
+        android:id="@+id/add_event_button"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="My List"
         android:layout_marginTop="16dp"
         android:background="@drawable/round_button"
-        android:textColor="#FFF"
-        android:padding="12dp" />
+        android:text="Add Event">
+    </Button>
 
-    <Button
-        android:id="@+id/addButton"
+    <TextView android:id="@+id/unix_minutes"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Add Medicine"
-        android:layout_marginTop="8dp"
-        android:background="@drawable/round_button"
-        android:textColor="#FFF"
-        android:padding="12dp" />
+        android:gravity="center"
+        android:text="@string/time_units">
+    </TextView>
 
 </LinearLayout>
-

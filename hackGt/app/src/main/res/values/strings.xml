@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">hackGt</string>
+        <string-array name="frequency_array">
+        <item>Daily</item>
+        <item>Weekly</item>
+        <item>Monthly</item>
+    </string-array>
 </resources>

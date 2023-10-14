@@ -26,6 +26,8 @@ public class Calendar extends AppCompatActivity
 
     private long medicineId; // To store the medicine_id passed from the previous activity
 
+    private String user;
+
 
     private CalendarEventDatabaseHelper calendarEventDbHelper;
     //-------------------------------------------------------------------------------------------------
@@ -37,6 +39,8 @@ public class Calendar extends AppCompatActivity
 
         Intent intent = getIntent();
         medicineId = intent.getLongExtra("medicine_id", -1); // Default value -1 if not provided
+        user = intent.getStringExtra("userId");
+
 
         datePicker = findViewById(R.id.date_picker);
         datePicker.init(datePicker.getYear(),datePicker.getMonth(),datePicker.getDayOfMonth(),this);
@@ -53,7 +57,9 @@ public class Calendar extends AppCompatActivity
             @Override
             public void onClick(View v) {
                 addEventToDatabase();
-                startActivity(new Intent(Calendar.this, MainActivity.class));
+                Intent intent = new Intent(Calendar.this, MainActivity.class);
+                intent.putExtra("userId", user);
+                startActivity(intent);
             }
         });
     }

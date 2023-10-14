@@ -16,18 +16,23 @@ public class MainActivity extends AppCompatActivity {
 
         Button listbtn = findViewById(R.id.listButton);
         Button addbtn = findViewById(R.id.addButton);
+        String userId = getIntent().getStringExtra("user_id");
 
         listbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(MainActivity.this, MedicineListActivity.class));
+                Intent intent = new Intent(MainActivity.this, MedicineListActivity.class);
+                intent.putExtra("user_id", userId);
+                startActivity(intent);
             }
         });
 
         addbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(MainActivity.this, MainActivityForMedicine.class));
+                Intent intent = new Intent(MainActivity.this, MainActivityForMedicine.class);
+                intent.putExtra("user_id", userId);
+                startActivity(intent);
             }
         });
     }

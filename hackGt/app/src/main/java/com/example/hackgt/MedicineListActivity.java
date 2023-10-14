@@ -18,7 +18,7 @@ public class MedicineListActivity extends AppCompatActivity {
     private MedicineListAdapter adapter;
     private List<Medicine> medicineList;
     private MedicineDatabaseHelper medicineDbHelper;
-    private int userId; // Replace with the actual user's ID
+    private String user; // Replace with the actual user's ID
 
     private Button btn;
 
@@ -35,14 +35,14 @@ public class MedicineListActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         // Query medicine data for the specific user
-        userId = 1; // Replace with the actual user's ID
-        medicineList = getMedicineDataForUser(userId);
+        user = getIntent().getStringExtra("user_id"); // Replace with the actual user's ID
+        medicineList = getMedicineDataForUser(user);
 
         // Create and set the adapter for the RecyclerView
         adapter = new MedicineListAdapter(this, medicineList);
         recyclerView.setAdapter(adapter);
 
-        Button btn = findViewById(R.id.add_event_button);
+        btn = findViewById(R.id.add_event_button);
 
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -52,7 +52,7 @@ public class MedicineListActivity extends AppCompatActivity {
         });
     }
 
-    private List<Medicine> getMedicineDataForUser(int userId) {
+    private List<Medicine> getMedicineDataForUser(String userId) {
         List<Medicine> medicineList = new ArrayList<>();
 
         // Query the database for medicine data related to the user

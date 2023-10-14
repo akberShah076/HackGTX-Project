@@ -43,14 +43,16 @@ public class LoginPage extends AppCompatActivity {
 
                     if (cursor.getCount() > 0) {
                         // User found, login successful
+                        Intent intent = new Intent(LoginPage.this, MainActivity.class);
+                        intent.putExtra("user_id", user); // Replace 'userId' with the actual user ID
+                        startActivity(intent);
                     } else {
                         // User not found, login failed
+                        Toast.makeText(LoginPage.this, "Login unsuccessful", Toast.LENGTH_SHORT).show();
                     }
                     cursor.close();
                     db.close();
-                    Intent intent = new Intent(LoginPage.this, MainActivityForMedicine.class);
-                    intent.putExtra("user_id", user); // Replace 'userId' with the actual user ID
-                    startActivity(intent);
+
                 }
             }
         });

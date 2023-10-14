@@ -7,7 +7,7 @@
     android:gravity="center"
     android:padding="16dp"
     android:background="#E0FFFF">
-    <?xml version="1.0" encoding="utf-8"?>
+
     <RelativeLayout
         android:layout_width="372dp"
         android:layout_height="574dp">
@@ -23,6 +23,7 @@
             android:scrollbars="vertical" />
 
     </RelativeLayout>
+
     <Button
         android:id="@+id/add_event_button"
         android:layout_width="wrap_content"

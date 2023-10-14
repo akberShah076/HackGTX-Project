@@ -20,6 +20,8 @@ public class MainActivityForMedicine extends AppCompatActivity {
     private Button btnTestDatabase;
     private Spinner spinnerFrequency;
 
+    //private MedicineListAdapter adapter;
+
     private MedicineDatabaseHelper medicineDbHelper = new MedicineDatabaseHelper(MainActivityForMedicine.this);
 
     @Override
@@ -47,6 +49,8 @@ public class MainActivityForMedicine extends AppCompatActivity {
                 String treatment = editTreatment.getText().toString();
                 String user = getIntent().getStringExtra("user_id");
 
+
+
                 // Check if any field is empty
                 if (medicineName.isEmpty() || dosage.isEmpty() || treatment.isEmpty()) {
                     Toast.makeText(MainActivityForMedicine.this, "Please fill in all fields", Toast.LENGTH_SHORT).show();
@@ -69,6 +73,8 @@ public class MainActivityForMedicine extends AppCompatActivity {
                         Intent intent = new Intent(MainActivityForMedicine.this, Calendar.class);
                         intent.putExtra("medicine_id", newRowId); // newRowId is the ID of the inserted medicine
                         startActivity(intent);
+
+                        //adapter.notifyDataSetChanged();
                     } else {
                         Toast.makeText(MainActivityForMedicine.this, "Error inserting medicine data", Toast.LENGTH_SHORT).show();
                     }

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <EditText
+            android:id="@+id/medicineNameEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Search for medicine"
+            android:drawableEnd="@drawable/ic_search"  <!-- Assuming you have a search icon named "ic_search" -->
+            android:drawablePadding="8dp"/>
+
+        <EditText
+            android:id="@+id/dosageAmountEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter dosage amount"
+            android:inputType="number"
+            android:layout_marginTop="16dp" />
+
+        <Spinner
+            android:id="@+id/frequencySpinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:entries="@array/frequency_array"  <!-- Define this string-array in your res/values/strings.xml -->
+            android:layout_marginTop="16dp" />
+
+        <EditText
+            android:id="@+id/extraNotesEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter additional notes"
+            android:layout_marginTop="16dp" />
+
+        <Button
+            android:id="@+id/saveButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Save"
+            android:layout_marginTop="16dp" />
+
+    </LinearLayout>
+
+</ScrollView>

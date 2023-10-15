@@ -24,20 +24,48 @@ public class MedicineListActivity extends AppCompatActivity {
     private Button btn;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.medicine_list);
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        if (user != null) {
+            outState.putString("SAVED_USER_ID", user);
+        }
+    }
 
+
+    @Override
+        protected void onCreate(Bundle savedInstanceState) {
+            super.onCreate(savedInstanceState);
+            setContentView(R.layout.medicine_list);
+
+
+
+        if (savedInstanceState != null) {
+            user = savedInstanceState.getString("SAVED_USER_ID");
+        } else {
+            user = getIntent().getStringExtra("user_id");
+        }
+
+        Log.d("MedicineListActivity", "YOOO LOG CHECKER 1");
         // Initialize the database helper
         medicineDbHelper = new MedicineDatabaseHelper(this);
 
+        Log.d("MedicineListActivity", "YOOO LOG CHECKER 2");
         // Initialize the RecyclerView
         recyclerView = findViewById(R.id.medicineRecyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
+        Log.d("MedicineListActivity", "YOOO LOG CHECKER 3");
+
         // Query medicine data for the specific user
         user = getIntent().getStringExtra("user_id"); // Replace with the actual user's ID
+        Log.d("MedicineListActivity", "YOOO LOG CHECKER 4");
         medicineList = getMedicineDataForUser(user);
+        Log.d("MedicineListActivity", "YOOO LOG CHECKER 5");
+        Log.d("MedicineListActivity", String.valueOf(medicineList));
+        Log.d("MedicineListActivity", "Medicine count: " + medicineList.size());
+        Log.d("MedicineListActivity", "Fetching medicines for user ID: " + user);
+
+
         for (Medicine medicine : medicineList) {
             Log.d("MedicineListActivity", "Medicine ID: " + medicine.getId());
             Log.d("MedicineListActivity", "Medicine Name: " + medicine.getMedicineName());
@@ -46,8 +74,11 @@ public class MedicineListActivity extends AppCompatActivity {
             Log.d("MedicineListActivity", "Treatment Name: " + medicine.getTreatmentName());
         }
 
+        Log.d("MedicineListActivity", "YOOO LOG CHECKER 6");
+
         // Create and set the adapter for the RecyclerView
         adapter = new MedicineListAdapter(MedicineListActivity.this, medicineList);
+        Log.d("MedicineListActivity", "YOOO LOG CHECKER 7");
         recyclerView.setAdapter(adapter);
 
         btn = findViewById(R.id.add_event_button);
@@ -106,6 +137,8 @@ public class MedicineListActivity extends AppCompatActivity {
                 medicineList.add(medicine);
             } while (cursor.moveToNext());
             cursor.close();
+            //db.close();
+
         }
 
         return medicineList;

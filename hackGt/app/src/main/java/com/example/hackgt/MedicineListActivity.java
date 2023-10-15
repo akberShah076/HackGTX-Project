@@ -23,13 +23,13 @@ public class MedicineListActivity extends AppCompatActivity {
 
     private Button btn;
 
-    @Override
-    protected void onSaveInstanceState(Bundle outState) {
-        super.onSaveInstanceState(outState);
-        if (user != null) {
-            outState.putString("SAVED_USER_ID", user);
-        }
-    }
+//    @Override
+//    protected void onSaveInstanceState(Bundle outState) {
+//        super.onSaveInstanceState(outState);
+//        if (user != null) {
+//            outState.putString("SAVED_USER_ID", user);
+//        }
+//    }
 
 
     @Override
@@ -45,6 +45,9 @@ public class MedicineListActivity extends AppCompatActivity {
             user = getIntent().getStringExtra("user_id");
         }
 
+// Continue with the rest of the code...
+
+
         Log.d("MedicineListActivity", "YOOO LOG CHECKER 1");
         // Initialize the database helper
         medicineDbHelper = new MedicineDatabaseHelper(this);
@@ -57,7 +60,7 @@ public class MedicineListActivity extends AppCompatActivity {
         Log.d("MedicineListActivity", "YOOO LOG CHECKER 3");
 
         // Query medicine data for the specific user
-        user = getIntent().getStringExtra("user_id"); // Replace with the actual user's ID
+        //user = getIntent().getStringExtra("user_id"); // Replace with the actual user's ID
         Log.d("MedicineListActivity", "YOOO LOG CHECKER 4");
         medicineList = getMedicineDataForUser(user);
         Log.d("MedicineListActivity", "YOOO LOG CHECKER 5");
@@ -81,7 +84,7 @@ public class MedicineListActivity extends AppCompatActivity {
         Log.d("MedicineListActivity", "YOOO LOG CHECKER 7");
         recyclerView.setAdapter(adapter);
 
-        btn = findViewById(R.id.add_event_button);
+        btn = findViewById(R.id.add_event_buttonBack);
 
         btn.setOnClickListener(new View.OnClickListener() {
             @Override

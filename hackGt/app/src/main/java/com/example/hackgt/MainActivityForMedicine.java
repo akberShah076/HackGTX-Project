@@ -71,6 +71,7 @@ public class MainActivityForMedicine extends AppCompatActivity {
                     if (newRowId != -1) {
                         Toast.makeText(MainActivityForMedicine.this, "Medicine data inserted successfully", Toast.LENGTH_LONG).show();
                         Intent intent = new Intent(MainActivityForMedicine.this, Calendar.class);
+                        intent.putExtra("userId", user);
                         intent.putExtra("medicine_id", newRowId); // newRowId is the ID of the inserted medicine
                         startActivity(intent);
 

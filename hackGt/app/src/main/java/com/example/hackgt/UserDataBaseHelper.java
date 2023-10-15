@@ -17,8 +17,8 @@ public class UserDataBaseHelper extends SQLiteOpenHelper {
 
     private static final String TABLE_CREATE =
             "CREATE TABLE " + TABLE_NAME + " (" +
-                    COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
-                    COLUMN_USERNAME + " TEXT, " +
+                    COLUMN_ID + " INTEGER, " +
+                    COLUMN_USERNAME + " TEXT PRIMARY KEY AUTOINCREMENT, " +
                     COLUMN_PASSWORD + " TEXT, " +
                     COLUMN_NAME + " TEXT);";
 
@@ -31,7 +31,7 @@ public class UserDataBaseHelper extends SQLiteOpenHelper {
     }
 
     public static String getColumnId() {
-        return COLUMN_ID;
+        return COLUMN_USERNAME;
     }
 
     @Override

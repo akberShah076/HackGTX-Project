@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 import java.util.List;
+import android.util.Log;
 
 public class MedicineListActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
@@ -37,9 +38,16 @@ public class MedicineListActivity extends AppCompatActivity {
         // Query medicine data for the specific user
         user = getIntent().getStringExtra("user_id"); // Replace with the actual user's ID
         medicineList = getMedicineDataForUser(user);
+        for (Medicine medicine : medicineList) {
+            Log.d("MedicineListActivity", "Medicine ID: " + medicine.getId());
+            Log.d("MedicineListActivity", "Medicine Name: " + medicine.getMedicineName());
+            Log.d("MedicineListActivity", "Dosage: " + medicine.getDosage());
+            Log.d("MedicineListActivity", "Frequency: " + medicine.getFrequency());
+            Log.d("MedicineListActivity", "Treatment Name: " + medicine.getTreatmentName());
+        }
 
         // Create and set the adapter for the RecyclerView
-        adapter = new MedicineListAdapter(this, medicineList);
+        adapter = new MedicineListAdapter(MedicineListActivity.this, medicineList);
         recyclerView.setAdapter(adapter);
 
         btn = findViewById(R.id.add_event_button);
@@ -47,7 +55,9 @@ public class MedicineListActivity extends AppCompatActivity {
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(MedicineListActivity.this, MainActivity.class));
+                Intent intent = new Intent(MedicineListActivity.this, MainActivity.class);
+                intent.putExtra("userId", user);
+                startActivity(intent);
             }
         });
     }

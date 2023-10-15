@@ -100,6 +100,8 @@ public class Calendar extends AppCompatActivity
         } else {
             Toast.makeText(this, "Failed to add event to the database.", Toast.LENGTH_SHORT).show();
         }
+
+        calendarEventDbHelper.close();
     }
 //-------------------------------------------------------------------------------------------------
 }

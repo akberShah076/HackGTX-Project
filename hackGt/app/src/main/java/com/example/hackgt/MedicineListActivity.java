@@ -90,7 +90,7 @@ public class MedicineListActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MedicineListActivity.this, MainActivity.class);
-                intent.putExtra("userId", user);
+                intent.putExtra("user_id", user);
                 startActivity(intent);
             }
         });
@@ -140,7 +140,7 @@ public class MedicineListActivity extends AppCompatActivity {
                 medicineList.add(medicine);
             } while (cursor.moveToNext());
             cursor.close();
-            //db.close();
+            db.close();
 
         }
 

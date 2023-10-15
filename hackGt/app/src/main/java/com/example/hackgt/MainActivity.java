@@ -4,10 +4,12 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
+    private String userId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -16,7 +18,8 @@ public class MainActivity extends AppCompatActivity {
 
         Button listbtn = findViewById(R.id.listButton);
         Button addbtn = findViewById(R.id.addButton);
-        String userId = getIntent().getStringExtra("user_id");
+        userId = getIntent().getStringExtra("user_id");
+        Log.d("Main", "ID: " + userId);
 
         listbtn.setOnClickListener(new View.OnClickListener() {
             @Override

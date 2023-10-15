@@ -58,7 +58,7 @@ public class Calendar extends AppCompatActivity
             public void onClick(View v) {
                 addEventToDatabase();
                 Intent intent = new Intent(Calendar.this, MainActivity.class);
-                intent.putExtra("userId", user);
+                intent.putExtra("user_id", user);
                 startActivity(intent);
             }
         });
